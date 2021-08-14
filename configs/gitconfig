@@ -1,0 +1,31 @@
+[core]
+	editor = vim
+	quotepath = false
+	ignorecase = false
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+[alias]
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	type = cat-file -t
+	dump = cat-file -p
+	email-guess = !. /web/root/etc/git-scripts/email-guess.sh
+[pull]
+	ff = only
+[commit]
+	gpgsign = true
+# [http]
+#	proxy = socks5://127.0.0.1:7891
+# [http]
+#       proxy = http://127.0.0.1:9999
+
+[include]
+	path = .gitconfig.user

@@ -1,0 +1,43 @@
+# setting for zsh
+export DISABLE_MAGIC_FUNCTIONS=true
+export ZSH=~/.oh-my-zsh
+if [ -e $ZSH ]; then
+    ZSH_THEME="robbyrussell"
+    plugins=(osx git docker kubectl helm aws tmux gcloud pip terraform vault)
+    DISABLE_UPDATE_PROMPT=true
+    SHOW_AWS_PROMPT=false
+    CASE_SENSITIVE=true
+    source $ZSH/oh-my-zsh.sh
+    PROMPT="[%T] "'[$(agp)] '$PROMPT
+    # ZSH_DISABLE_COMPFIX=true
+    # autoload -U compinit && compinit
+    # bindkey \^U backward-kill-line
+    # zstyle ':urlglobber' url-other-schema
+else
+    export PS1='[\[\033[32m\]$(parse_git_branch)\[\033[00m\]\h:\W]\$ '
+fi
+
+# common plugins
+if [ -e ~/.plugins ];then
+    for i in $(find ~/.plugins/ -type f | sort); do
+        source $i
+    done
+fi
+
+# extra plugins
+if [ -e ~/.extras ];then
+    for i in $(find ~/.extras/ -type f | sort); do
+        source $i
+    done
+fi
+
+if uname -a | grep -q "Darwin"; then
+    goenv
+    gokey
+fi
+
+if [ $(uname) = "Linux" ] && [ -z "$TMUX" ]; then
+    tmux
+else
+    echo
+fi
