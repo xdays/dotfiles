@@ -11,7 +11,7 @@ install_tools() {
         fi
         brew tap homebrew/cask
         brew tap homebrew/bundle
-        cd $WROOT/deps && brew bundle
+        cd $WROOT/deps && brew bundle && cd -
     elif [ -e /etc/redhat-release ]; then
         sudo yum install -y epel-release
         sudo yum install -y $(cat ${WROOT}/deps/tools.redhat)
@@ -22,7 +22,7 @@ install_tools() {
 }
 
 config_tools() {
-    for f in $(find configs -type f); do
+    for f in $(find $WROOT/configs -type f); do
         filename=$(basename "$f")
         src="$WROOT/configs/$filename"
         dest=$HOME/.$filename
