@@ -2,7 +2,6 @@
 if uname -a | grep -q "Darwin"; then
     export PATH=/usr/local/sbin:$PATH
     export PATH=/usr/local/opt/curl/bin:$PATH
-    export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
     export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
     export PATH=/usr/local/opt/python@3.8/bin:$PATH
     export PATH=/usr/local/opt/python@3.8/libexec/bin:$PATH

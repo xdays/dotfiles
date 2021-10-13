@@ -3,7 +3,7 @@ export DISABLE_MAGIC_FUNCTIONS=true
 export ZSH=~/.oh-my-zsh
 if [ -e $ZSH ]; then
     ZSH_THEME="robbyrussell"
-    plugins=(osx git docker kubectl helm aws tmux gcloud pip terraform vault)
+    plugins=(osx git docker kubectl helm aws tmux gcloud pip terraform vault minikube)
     DISABLE_UPDATE_PROMPT=true
     SHOW_AWS_PROMPT=false
     CASE_SENSITIVE=true
@@ -31,7 +31,7 @@ if [ -e ~/.extras ];then
     done
 fi
 
-if uname -a | grep -q "Darwin"; then
+if uname -a | grep -q "Linux\|Darwin"; then
     goenv
     gokey
 fi
