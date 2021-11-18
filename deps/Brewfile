@@ -11,8 +11,6 @@ tap "koekeishiya/formulae"
 tap "nektos/tap"
 tap "openresty/brew"
 tap "rs/tap"
-tap "stripe/stripe-cli"
-tap "stripe/stripe-mock"
 tap "vmware-tanzu/carvel"
 brew "act"
 brew "aliyun-cli"
@@ -36,6 +34,7 @@ brew "cmake"
 brew "cocoapods"
 brew "consul"
 brew "coreutils"
+brew "cpanminus"
 brew "ctags"
 brew "curl"
 brew "deno"
@@ -95,7 +94,7 @@ brew "lftp"
 brew "libiconv"
 brew "libvirt", restart_service: true
 brew "loki", restart_service: true
-brew "luarocks"
+brew "lsusb"
 brew "mariadb"
 brew "mas"
 brew "maven"
@@ -103,10 +102,10 @@ brew "minikube"
 brew "miniupnpc"
 brew "mosh"
 brew "mtr"
+brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "nmap"
 brew "node_exporter", restart_service: true
-brew "ntfs-3g"
 brew "octant"
 brew "oha"
 brew "p7zip"
@@ -147,6 +146,7 @@ brew "the_silver_searcher"
 brew "tinc"
 brew "tmux"
 brew "tree"
+brew "tsung"
 brew "unar"
 brew "vault"
 brew "vegeta"
@@ -166,10 +166,9 @@ brew "zsh"
 brew "aws/tap/aws-sam-cli"
 brew "cloudflare/cloudflare/cloudflared"
 brew "koekeishiya/formulae/skhd"
+brew "openresty/brew/openresty"
 brew "rs/tap/jaggr"
 brew "rs/tap/jplot"
-brew "stripe/stripe-cli/stripe"
-brew "stripe/stripe-mock/stripe-mock"
 brew "vmware-tanzu/carvel/ytt"
 cask "1password"
 cask "1password-cli"
@@ -221,3 +220,18 @@ cask "vnc-viewer"
 cask "wechatwebdevtools"
 cask "zerotier-one"
 cask "zoom"
+mas "1Password 7", id: 1333542190
+mas "Blinks", id: 998804308
+mas "Coin Tick", id: 1141688067
+mas "DigiDoc4 Client", id: 1370791134
+mas "Hour", id: 569089415
+mas "Keynote", id: 409183694
+mas "Notability", id: 360593530
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "PDF Expert", id: 1055273043
+mas "Postico", id: 1031280567
+mas "Reeder", id: 1449412482
+mas "Speedtest", id: 1153157709
+mas "Telegram", id: 747648890
+mas "Twingate", id: 1501592214

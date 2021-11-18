@@ -3,7 +3,7 @@ export DISABLE_MAGIC_FUNCTIONS=true
 export ZSH=~/.oh-my-zsh
 if [ -e $ZSH ]; then
     ZSH_THEME="robbyrussell"
-    plugins=(zsh-autosuggestions macos git docker kubectl helm aws tmux gcloud pip terraform vault minikube)
+    plugins=(zsh-autosuggestions macos git docker kubectl helm aws tmux gcloud terraform vault minikube)
     DISABLE_UPDATE_PROMPT=true
     SHOW_AWS_PROMPT=false
     CASE_SENSITIVE=true
