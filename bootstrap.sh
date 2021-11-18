@@ -49,6 +49,7 @@ config_zsh() {
         echo "zsh is already configured"
     else
         git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
         git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:=$HOME/.oh-my-zsh/custom}/plugins/zsh-completions"
     fi
     ln -snf "$WROOT/configs/zshrc" $HOME/.zshrc
