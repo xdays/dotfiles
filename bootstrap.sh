@@ -44,6 +44,17 @@ config_vim() {
     fi
 }
 
+config_neovim() {
+    if [ -e $HOME/.config/nvim/lua/custom ]
+    then
+        echo "vim is already configured"
+    else
+        git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+        ln -snf $WROOT/configs/nvchad ~/.config/nvim/lua/custom
+        nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+    fi
+}
+
 config_zsh() {
     if [ -e $HOME/.oh-my-zsh ]; then
         echo "zsh is already configured"
@@ -59,6 +70,7 @@ main() {
     install_tools
     config_tools
     config_vim
+    config_neovim
     config_zsh
 }
 
