@@ -7,7 +7,7 @@ helm() {
     if [ -e ~/workspace/bin/helm ]; then
         CMD=~/workspace/bin/helm
     else
-        CMD=/usr/local/bin/helm
+        CMD=$BREW_BIN/helm
     fi
     $CMD --kube-context="$KUBE_PROFILE" "$@"
 }

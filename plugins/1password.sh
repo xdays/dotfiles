@@ -1,6 +1,6 @@
 opon() {
   if [[ -z $OP_SESSION_$1 ]]; then
-    eval $(op signin $1)
+    eval $(op signin --account $1)
   fi
 }
 
@@ -11,7 +11,7 @@ opoff() {
 
 getpwd() {
   opon
-  op get item "$1" |jq -r '.details.fields[] |select(.designation=="password").value'
+  op item get "$1" |jq -r '.details.fields[] |select(.designation=="password").value'
   opoff
 }
 
