@@ -3,7 +3,8 @@ M = {}
 
 M.setup = function()
     local servers = {
-        "bashls", "gopls", "terraformls", "pyright", "dockerls", "elixirls"
+        "bashls", "gopls", "terraformls", "pyright", "dockerls", "elixirls",
+        "sumneko_lua"
     }
 
     for _, name in pairs(servers) do
