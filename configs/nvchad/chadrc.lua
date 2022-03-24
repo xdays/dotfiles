@@ -5,7 +5,6 @@ local userPlugins = require "custom.plugins"
 
 M.plugins = {
     status = {alpha = true, colorizer = true},
-    options = {lspconfig = {setup_lspconf = "custom.plugins.lspconfig"}},
     install = userPlugins,
     default_plugin_config_replace = {
         nvim_treesitter = plugin_conf.treesitter,

@@ -4,10 +4,9 @@ local b = null_ls.builtins
 local sources = {
     b.formatting.prettierd.with {filetypes = {"html", "markdown", "css"}},
     b.formatting.black, -- python
-    b.formatting.terraform_fmt, -- python
     b.formatting.lua_format, -- lua
     b.diagnostics.luacheck.with {extra_args = {"--global vim"}}, -- lua
-    b.formatting.shfmt, -- shell
+    b.formatting.shfmt.with {extra_args = {"-i 4"}}, -- shell
     b.diagnostics.shellcheck.with {diagnostics_format = "#{m} [#{c}]"}
 }
 
