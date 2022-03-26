@@ -6,17 +6,23 @@ aws-s3du() {
 aws-s3size() {
     bucket=$1
     region=${2:-"us-west-2"}
-    now=$(date +%s)
-    aws cloudwatch get-metric-statistics --namespace AWS/S3 \
-    --start-time "$(echo "$now - 172800" | bc)" \
-    --end-time "$now" \
-    --period 86400 \
-    --statistics Average \
-    --region $region \
-    --metric-name BucketSizeBytes \
-    --dimensions Name=BucketName,Value="$bucket" Name=StorageType,Value=StandardStorage \
-    --query 'Datapoints[0].Average'
-
+    start=$(date +"%Y-%m-%dT00:00:00" --date="2 days ago")
+    end=$(date +"%Y-%m-%dT00:00:00")
+    f="0"
+    for t in StandardStorage GlacierStorage IntelligentTieringAIAStorage \
+        IntelligentTieringFAStorage IntelligentTieringIAStorage GlacierS3ObjectOverhead \
+        GlacierObjectOverhead;do
+        size=$(aws cloudwatch get-metric-statistics --namespace AWS/S3 \
+            --start-time "$start" \
+            --end-time "$end" \
+            --period 86400 \
+            --statistics Average \
+            --metric-name BucketSizeBytes \
+            --dimensions Name=BucketName,Value="$bucket" Name=StorageType,Value=$t \
+            | jq 'if (.Datapoints | length) > 0 then .Datapoints[0].Average else 0 end')
+        f="$f+$size"
+    done
+    echo "($f)/1024/1024/1024/1024" | bc
 }
 
 aws-echo() {
