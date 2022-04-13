@@ -4,7 +4,7 @@ return {
         after = "nvim-lspconfig",
         config = function() require("custom.plugins.null-ls").setup() end
     }, {
-        "'williamboman/nvim-lsp-installer",
+        "williamboman/nvim-lsp-installer",
         config = function()
             require("custom.plugins.lsp-installer").setup()
         end
