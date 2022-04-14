@@ -7,6 +7,4 @@ M.treesitter = {
     }
 }
 
-M.nvimtree = {git = {enable = true}}
-
 return M

@@ -1,15 +1,12 @@
 local M = {}
 
 local plugin_conf = require "custom.plugins.configs"
-local userPlugins = require "custom.plugins"
+local user_plugins = require "custom.plugins"
 
 M.plugins = {
     status = {alpha = true, colorizer = true},
-    install = userPlugins,
-    default_plugin_config_replace = {
-        nvim_treesitter = plugin_conf.treesitter,
-        nvim_tree = plugin_conf.nvimtree
-    },
+    install = user_plugins,
+    default_plugin_config_replace = {nvim_treesitter = plugin_conf.treesitter},
     default_plugin_remove = {"akinsho/bufferline.nvim"}
 }
 
