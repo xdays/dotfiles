@@ -6,6 +6,7 @@ local sources = {
     b.formatting.black,
     b.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "4" } }),
     b.formatting.shfmt.with({ extra_args = { "-i", "4", "-c" } }),
+    b.formatting.terraform_fmt,
 }
 
 local M = {}
