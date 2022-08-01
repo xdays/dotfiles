@@ -5,7 +5,7 @@ vn() {
     if [ $# -eq 0 ]; then
         echo 'Please specify environment'
     else
-        virtualenv $VPATH/$1/
+        python -m venv $VPATH/$1/
     fi
 }
 vs() {
