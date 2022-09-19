@@ -1,13 +1,13 @@
 # environment var
 if uname -a | grep -q "Darwin"; then
-  BREW_PREFIX=$(brew --prefix)
-    export PATH=$BREW_PREFIX/sbin:$PATH
-    export PATH=$BREW_PREFIX/opt/curl/bin:$PATH
-    export PATH=$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH
-    export PATH=$BREW_PREFIX/opt/python@3.8/bin:$PATH
-    export PATH=$BREW_PREFIX/opt/python@3.8/libexec/bin:$PATH
-    export PATH=$BREW_PREFIX/opt/node@14/bin:$PATH
-    export PATH=$BREW_PREFIX/opt/ruby/bin:$PATH
+    HOMEBREW_PREFIX=$(brew --prefix)
+    export PATH=$HOMEBREW_PREFIX/sbin:$PATH
+    export PATH=$HOMEBREW_PREFIX/opt/curl/bin:$PATH
+    export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH
+    export PATH=$HOMEBREW_PREFIX/opt/python@3.8/bin:$PATH
+    export PATH=$HOMEBREW_PREFIX/opt/python@3.8/libexec/bin:$PATH
+    export PATH=$HOMEBREW_PREFIX/opt/node@14/bin:$PATH
+    export PATH=$HOMEBREW_PREFIX/opt/ruby/bin:$PATH
 elif uname -a | grep -q Microsoft; then
     export DOCKER_HOST=tcp://localhost:2375
 else
