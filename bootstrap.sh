@@ -51,7 +51,6 @@ config_neovim() {
     else
         git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
         ln -snf $WROOT/configs/nvchad ~/.config/nvim/lua/custom
-        nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
     fi
 }
 
