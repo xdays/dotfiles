@@ -20,7 +20,6 @@ brew "eksctl"
 brew "erlang@24"
 brew "fzf"
 brew "gh"
-brew "gimme-aws-creds"
 brew "git"
 brew "git-crypt"
 brew "gitleaks"
@@ -50,7 +49,6 @@ brew "mint"
 brew "mosh"
 brew "mtr"
 brew "mysql-client"
-brew "ncurses"
 brew "neovim"
 brew "netcat"
 brew "nmap"
@@ -84,7 +82,7 @@ brew "wget"
 brew "youtube-dl"
 brew "yq"
 brew "zsh"
-cask "1password-beta"
+cask "1password"
 cask "1password-cli"
 cask "appcleaner"
 cask "charles"
@@ -113,10 +111,8 @@ cask "notion"
 cask "nteract"
 cask "postman"
 cask "qq"
-cask "raspberry-pi-imager"
 cask "raycast"
 cask "slack"
-cask "snowflake-snowsql"
 cask "teamviewer"
 cask "thunder"
 cask "topnotch"
@@ -124,6 +120,7 @@ cask "visual-studio-code"
 cask "wechatwebdevtools"
 cask "zerotier-one"
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
 mas "DigiDoc4 Client", id: 1370791134
 mas "Futubull", id: 664513913
 mas "GarageBand", id: 682658836
@@ -132,5 +129,3 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Tailscale", id: 1475387142
-mas "Telegram", id: 747648890
