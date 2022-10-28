@@ -1,24 +1,13 @@
-local M = {}
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local capabilities = require("plugins.configs.lspconfig").capabilities
+local lspconfig = require("lspconfig")
 
-M.setup_lsp = function(attach, capabilities)
-    local lspconfig = require("lspconfig")
+-- lspservers with default config
+local servers = { "bashls", "dockerls", "gopls", "terraformls", "pyright", "elixirls", "sumneko_lua" }
 
-    -- lspservers with default config
-    local servers = { "bashls", "dockerls", "gopls", "terraformls", "pyright", "elixirls", "sumneko_lua" }
-
-    for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup({
-            on_attach = function(client, bufnr)
-                attach(client, bufnr)
-                -- change gopls server capabilities
-                if lsp == "gopls" then
-                    client.resolved_capabilities.document_formatting = true
-                    client.resolved_capabilities.document_range_formatting = true
-                end
-            end,
-            capabilities = capabilities,
-        })
-    end
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 end
-
-return M
