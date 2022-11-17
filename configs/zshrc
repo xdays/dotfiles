@@ -1,11 +1,11 @@
 # setting for zsh
 export DISABLE_MAGIC_FUNCTIONS=true
-if [ $(arch) = "arm64" ];then
+if [[ $(uname -m) = "arm64" ]];then
     export BREW_BIN=/opt/homebrew/bin
     export PATH=$BREW_BIN:$PATH
 fi
 export ZSH=~/.oh-my-zsh
-if [ -e $ZSH ]; then
+if [[ -e $ZSH ]]; then
     ZSH_THEME="robbyrussell"
     plugins=(zsh-autosuggestions macos git docker kubectl helm aws tmux gcloud terraform vault minikube)
     DISABLE_UPDATE_PROMPT=true
@@ -22,14 +22,14 @@ else
 fi
 
 # common plugins
-if [ -e ~/.plugins ];then
+if [[ -e ~/.plugins ]];then
     for i in $(find ~/.plugins/ -type f | sort); do
         source $i
     done
 fi
 
 # extra plugins
-if [ -e ~/.extras ];then
+if [[ -e ~/.extras ]];then
     for i in $(find ~/.extras/ -type f | sort); do
         source $i
     done
@@ -40,7 +40,7 @@ if uname -a | grep -q "Linux\|Darwin"; then
     gokey
 fi
 
-if [ $(uname) = "Linux" ] && [ -z "$TMUX" ]; then
+if [[ $(uname) = "Linux" ]] && [[ -z "$TMUX" ]]; then
     tmux
 else
     echo
