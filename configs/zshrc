@@ -1,3 +1,6 @@
+# set path for brew
+[[ -e ~/.plugins/brew.sh ]] && source ~/.plugins/brew.sh
+
 # setting for zsh
 export DISABLE_MAGIC_FUNCTIONS=true
 export ZSH=~/.oh-my-zsh
@@ -42,6 +45,3 @@ else
     echo
 fi
 
-
-# added by Snowflake SnowSQL installer v1.2
-export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH

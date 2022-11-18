@@ -1,6 +1,5 @@
 # environment var
 if uname -a | grep -q "Darwin"; then
-    HOMEBREW_PREFIX=$(brew --prefix)
     export PATH=$HOMEBREW_PREFIX/sbin:$PATH
     export PATH=$HOMEBREW_PREFIX/opt/curl/bin:$PATH
     export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH
