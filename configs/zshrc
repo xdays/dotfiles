@@ -1,9 +1,5 @@
 # setting for zsh
 export DISABLE_MAGIC_FUNCTIONS=true
-if [[ $(uname -m) = "arm64" ]];then
-    export BREW_BIN=/opt/homebrew/bin
-    export PATH=$BREW_BIN:$PATH
-fi
 export ZSH=~/.oh-my-zsh
 if [[ -e $ZSH ]]; then
     ZSH_THEME="robbyrussell"

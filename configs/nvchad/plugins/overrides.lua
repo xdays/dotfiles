@@ -25,6 +25,9 @@ M.mason = {
 		"lua-language-server",
 		"stylua",
 
+    -- shell
+    "shfmt",
+
 		-- web dev stuff
 		"css-lsp",
 		"html-lsp",
