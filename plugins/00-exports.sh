@@ -17,7 +17,6 @@ export CLICOLOR=1
 export TERM=xterm-256color
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR=vim
-export HOMEBREW_EDITOR=vim
+export EDITOR=nvim
 export HTTPSTAT_SAVE_BODY=false
 
