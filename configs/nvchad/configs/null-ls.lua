@@ -14,7 +14,9 @@ local sources = {
   b.formatting.clang_format,
 
   -- terraform
-  b.formatting.terraform_fmt,
+  b.formatting.terraform_fmt.with({
+    extra_filetypes = { "hcl" },
+  }),
 }
 
 null_ls.setup({
