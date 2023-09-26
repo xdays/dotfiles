@@ -17,6 +17,9 @@ local sources = {
   b.formatting.terraform_fmt.with({
     extra_filetypes = { "hcl" },
   }),
+
+  -- python
+  b.formatting.black,
 }
 
 null_ls.setup({
