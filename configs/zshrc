@@ -11,7 +11,7 @@ if [[ -e $ZSH ]]; then
     SHOW_AWS_PROMPT=false
     CASE_SENSITIVE=true
     source $ZSH/oh-my-zsh.sh
-    PROMPT="[%T] "'[$(agp)] [$(egp)] '$PROMPT
+    PROMPT="[%T] "'[$(agp)] [$(kgc)] [$(kgn)] '$PROMPT
     # ZSH_DISABLE_COMPFIX=true
     # autoload -U compinit && compinit
     # bindkey \^U backward-kill-line
@@ -39,7 +39,7 @@ if uname -a | grep -q "Linux\|Darwin"; then
     gokey
 fi
 
-if [[ $(uname) = "Linux" ]] && [[ -z "$TMUX" ]]; then
+if [[ $(uname) == "Linux" ]] && [[ -z "$TMUX" ]]; then
     tmux
 else
     echo

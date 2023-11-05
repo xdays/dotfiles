@@ -2,30 +2,12 @@
 export KUBECONFIG=$(for i in ~/.kube/c-*;do echo -n "$i":;done)~/.kube/config
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-kubectl() {
-    if [ -e ~/workspace/bin/kubectl ]; then
-        CMD=~/workspace/bin/kubectl
-    else
-        CMD=$BREW_BIN/kubectl
-    fi
-    $CMD --context="$KUBE_PROFILE" --namespace "$KUBE_NAMESPACE" "$@"
-}
-
-helm() {
-    if [ -e ~/workspace/bin/helm ]; then
-        CMD=~/workspace/bin/helm
-    else
-        CMD=$BREW_BIN/helm
-    fi
-    $CMD --kube-context="$KUBE_PROFILE" "$@"
-}
-
-egp() {
+kgc() {
   echo $KUBE_PROFILE
 }
 
-kns() {
-  export KUBE_NAMESPACE=${1:-default}
+kgn() {
+  echo $KUBE_NAMESPACE
 }
 
 kjl() {
