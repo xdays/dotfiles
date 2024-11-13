@@ -10,11 +10,9 @@ if [[ -e $ZSH ]]; then
     DISABLE_UPDATE_PROMPT=true
     SHOW_AWS_PROMPT=false
     CASE_SENSITIVE=true
+    ZSH_DISABLE_COMPFIX=true
     source $ZSH/oh-my-zsh.sh
     PROMPT="[%T] "'[$(agp)] [$(kgc)] [$(kgn)] '$PROMPT
-    # ZSH_DISABLE_COMPFIX=true
-    # autoload -U compinit && compinit
-    # bindkey \^U backward-kill-line
     # zstyle ':urlglobber' url-other-schema
 else
     export PS1='[\[\033[32m\]$(parse_git_branch)\[\033[00m\]\h:\W]\$ '
