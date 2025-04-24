@@ -1,6 +1,5 @@
 # environment var
 if uname -a | grep -q "Darwin"; then
-    export PATH=$HOMEBREW_PREFIX/sbin:$PATH
     export PATH=$HOMEBREW_PREFIX/opt/curl/bin:$PATH
     export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH
     export PATH=$HOMEBREW_PREFIX/opt/python@3.8/bin:$PATH
