@@ -1,9 +1,9 @@
 # aliases
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-        colorflag="--color"
+    colorflag="--color"
 else # macOS `ls`
-        colorflag="-G"
-        export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+    colorflag="-G"
+    export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
 alias l="ls -lF ${colorflag}"
 alias ls="ls ${colorflag}"
@@ -19,3 +19,12 @@ alias rm='rm -f'
 alias sudo='sudo -H'
 alias dpaste="curl -F 'content=<-' https://dpaste.de/api/ && echo"
 alias shared='python -m http.server'
+alias k='kubectl'
+alias g='goenv'
+alias tg='terragrunt'
+alias tf='terraform'
+alias gst='git status'
+alias asl='aws sso login'
+alias cdo="cd $WPATH/loopapps/ops"
+alias cdx="cd $WPATH/xdays/"
+alias cdl="cd $WPATH/loopapps/"

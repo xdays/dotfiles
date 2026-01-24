@@ -1,7 +1,7 @@
-if which aliyun > /dev/null 2>&1; then
-    complete -C aliyun aliyun
-    autoload -U +X bashcompinit && bashcompinit
-    complete -o nospace -F aliyun aliyun
+if command -v aliyun >/dev/null 2>&1; then
+    if aliyun completion zsh >/dev/null 2>&1; then
+        source <(aliyun completion zsh)
+    fi
 fi
 
 ecs-list() {

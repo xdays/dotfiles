@@ -10,6 +10,25 @@ kgn() {
   echo $KUBE_NAMESPACE
 }
 
+ksc() {
+  if [ -z "$1" ]; then
+    echo "usage: ksc <context>"
+    return 1
+  fi
+  export KUBE_PROFILE="$1"
+  kubectl config use-context "$1"
+}
+
+ksn() {
+  if [ -z "$1" ]; then
+    echo "usage: ksn <namespace>"
+    return 1
+  fi
+  export KUBE_NAMESPACE="$1"
+  kubectl config set-context --current --namespace="$1"
+  _env_save_state
+}
+
 kjl() {
     kubectl logs $(kubectl get pods -a --selector=job-name="$1" --output='jsonpath={.items..metadata.name}')
 }
