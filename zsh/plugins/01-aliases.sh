@@ -21,6 +21,7 @@ alias dpaste="curl -F 'content=<-' https://dpaste.de/api/ && echo"
 alias shared='python -m http.server'
 alias k='kubectl'
 alias g='goenv'
+alias n='ksn'
 alias tg='terragrunt'
 alias tf='terraform'
 alias gst='git status'
