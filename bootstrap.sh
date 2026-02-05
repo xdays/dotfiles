@@ -51,7 +51,7 @@ config_neovim() {
 
 config_zsh_omz() {
     if [[ -e $HOME/.oh-my-zsh ]]; then
-        echo "zsh is already configured"
+        echo "oh-my-zsh is already configured"
     else
         git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -61,23 +61,16 @@ config_zsh_omz() {
     ln -snf "$WROOT/zsh/plugins" $HOME/.plugins
 }
 
-config_zsh_prezto() {
-    if [[ -e $HOME/.zprezto ]]; then
-        echo "prezto is already configured"
+config_zsh_zinit() {
+    local ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+    if [[ -e $ZINIT_HOME ]]; then
+        echo "zinit is already configured"
     else
-        git clone --recursive https://github.com/sorin-ionescu/prezto.git $HOME/.zprezto
+        mkdir -p "$(dirname $ZINIT_HOME)"
+        git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
     fi
-    for rcfile in zlogin zlogout zpreztorc zprofile zshenv zshrc; do
-        ln -snf "$HOME/.zprezto/runcoms/$rcfile" "$HOME/.${rcfile}"
-    done
-    mkdir -p $HOME/.zprezto/modules
-    ln -snf "$WROOT/zsh/plugins" $HOME/.zprezto/modules/plugins
-    if [[ -e "$WROOT/zsh/plugins/functions/prompt_xdays_setup" ]]; then
-        mkdir -p $HOME/.zprezto/modules/prompt/functions
-        ln -snf "$WROOT/zsh/plugins/functions/prompt_xdays_setup" \
-            $HOME/.zprezto/modules/prompt/functions/prompt_xdays_setup
-    fi
-    echo "To enable custom module: add 'plugins' to zstyle ':prezto:load' pmodule in ~/.zpreztorc"
+    ln -snf "$WROOT/zsh/zshrc" $HOME/.zshrc
+    ln -snf "$WROOT/zsh/plugins" $HOME/.plugins
 }
 
 main() {
@@ -89,12 +82,12 @@ main() {
             ;;
         config)
             config_tools
-            config_zsh_prezto
+            config_zsh_zinit
             ;;
         "")
             install_tools
             config_tools
-            config_zsh_prezto
+            config_zsh_zinit
             ;;
         *)
             echo "usage: $0 [install|config]  (default: run install + config)"

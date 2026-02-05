@@ -15,4 +15,4 @@ getpwd() {
   opoff
 }
 
-eval "$(op completion zsh)"; compdef _op op
+# eval "$(op completion zsh)"

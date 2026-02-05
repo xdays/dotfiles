@@ -1,10 +1,24 @@
 # set path for brew
-[[ -e ~/.plugins/brew.sh ]] && source ~/.plugins/brew.sh
+[[ -e ~/.plugins/02-brew.sh ]] && source ~/.plugins/02-brew.sh
 
 # setting for zsh
 export DISABLE_MAGIC_FUNCTIONS=true
-export ZSH=~/.oh-my-zsh
-if [[ -e $ZSH ]]; then
+
+# Zinit initialization
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ -d $ZINIT_HOME ]]; then
+    source "${ZINIT_HOME}/zinit.zsh"
+
+    # Load plugins with turbo mode (deferred loading for faster startup)
+    zinit wait lucid light-mode for \
+        atinit"zicompinit; zicdreplay" \
+        zsh-users/zsh-syntax-highlighting \
+        zsh-users/zsh-autosuggestions \
+        zsh-users/zsh-completions
+
+elif [[ -d $HOME/.oh-my-zsh ]]; then
+    # Fallback to oh-my-zsh
+    export ZSH=$HOME/.oh-my-zsh
     ZSH_THEME="robbyrussell"
     plugins=(zsh-autosuggestions macos git docker kubectl helm aws tmux gcloud terraform vault minikube)
     DISABLE_UPDATE_PROMPT=true
@@ -12,21 +26,19 @@ if [[ -e $ZSH ]]; then
     CASE_SENSITIVE=true
     ZSH_DISABLE_COMPFIX=true
     source $ZSH/oh-my-zsh.sh
-    PROMPT="[%T] "'[$(agp)] [$(kgc)] [$(kgn)] '$PROMPT
-    # zstyle ':urlglobber' url-other-schema
 else
     export PS1='[\[\033[32m\]$(parse_git_branch)\[\033[00m\]\h:\W]\$ '
 fi
 
 # common plugins
-if [[ -e ~/.plugins ]];then
-    for i in $(find ~/.plugins/ -type f | sort); do
+if [[ -e ~/.plugins ]]; then
+    for i in $(find ~/.plugins/ -type f -name "*.sh" | sort); do
         source $i
     done
 fi
 
 # extra plugins
-if [[ -e ~/.extras ]];then
+if [[ -e ~/.extras ]]; then
     for i in $(find ~/.extras/ -type f | sort); do
         source $i
     done
@@ -34,7 +46,6 @@ fi
 
 if uname -a | grep -q "Linux\|Darwin"; then
     goenv
-    gokey
 fi
 
 if [[ $(uname) == "Linux" ]] && [[ -z "$TMUX" ]]; then
@@ -42,4 +53,3 @@ if [[ $(uname) == "Linux" ]] && [[ -z "$TMUX" ]]; then
 else
     echo
 fi
-
