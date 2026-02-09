@@ -16,6 +16,11 @@ if [[ -d $ZINIT_HOME ]]; then
         zsh-users/zsh-autosuggestions \
         zsh-users/zsh-completions
 
+    # Load OMZ git library and plugin
+    zinit wait lucid for \
+        OMZL::git.zsh \
+        OMZP::git
+
 elif [[ -d $HOME/.oh-my-zsh ]]; then
     # Fallback to oh-my-zsh
     export ZSH=$HOME/.oh-my-zsh

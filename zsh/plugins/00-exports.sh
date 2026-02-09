@@ -14,6 +14,7 @@ else
 fi
 
 export WPATH=$HOME/Workspace
+export WROOT=$WPATH/xdays/web
 export CLICOLOR=1
 export TERM=xterm-256color
 export LC_ALL=en_US.UTF-8

@@ -20,11 +20,17 @@ precmd() {
         fi
     fi
 
-    # Git segment
+    # Git segment with emoji status
     if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
         local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
         if [[ -n "$branch" ]]; then
-            git_seg="%F{2}[git:${branch}]%f "
+            local git_status=''
+            local gs=$(git status --porcelain 2>/dev/null)
+            [[ -n $(echo "$gs" | grep '^??' 2>/dev/null) ]] && git_status+='🆕'
+            [[ -n $(echo "$gs" | grep '^.[MD]' 2>/dev/null) ]] && git_status+='📝'
+            [[ -n $(echo "$gs" | grep '^[MADRC]' 2>/dev/null) ]] && git_status+='✅'
+            [[ -z "$gs" ]] && git_status='✨'
+            git_seg="%F{2}[git:${branch}${git_status}]%f "
         fi
     fi
 
