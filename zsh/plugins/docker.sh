@@ -1,5 +1,4 @@
 # docker alias
-which kubectl.docker >/dev/null 2>&1 && rm "$(which kubectl.docker)"
 alias dps='docker ps'
 alias dmg='docker images'
 alias denv='eval $(docker-machine env default)'
