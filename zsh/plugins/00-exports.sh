@@ -23,4 +23,5 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export HTTPSTAT_SAVE_BODY=false
 export TG_TF_PATH=terraform
+export TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
 
