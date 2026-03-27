@@ -7,6 +7,7 @@ if uname -a | grep -q "Darwin"; then
     export PATH=$BREW_PREFIX/opt/python@3.14/libexec/bin:$PATH
     export PATH=$BREW_PREFIX/opt/node@24/bin:$PATH
     export PATH=$BREW_PREFIX/opt/ruby/bin:$PATH
+    export PATH=$BREW_PREFIX/opt/postgresql@17/bin:$PATH
 elif uname -a | g-q Microsoft; then
     export DOCKER_HOST=tcp://localhost:2375
 else

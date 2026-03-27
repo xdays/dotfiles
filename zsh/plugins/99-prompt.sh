@@ -34,5 +34,5 @@ precmd() {
         fi
     fi
 
-    PROMPT="${aws_seg}${k8s_seg}${git_seg}%F{4}%~%f $ "
+    PROMPT="${aws_seg}${k8s_seg}${git_seg}%F{4}%(4~|…/%3~|%~)%f $ "
 }
