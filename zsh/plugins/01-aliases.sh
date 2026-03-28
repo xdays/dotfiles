@@ -29,3 +29,5 @@ alias asl='aws sso login'
 alias cdo="cd $WPATH/loopapps/ops"
 alias cdx="cd $WPATH/xdays/"
 alias cdl="cd $WPATH/loopapps/"
+alias genpass='openssl rand -base64 32 | tr -d "
+" | head -c 32'

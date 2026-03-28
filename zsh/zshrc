@@ -4,10 +4,21 @@
 # setting for zsh
 export DISABLE_MAGIC_FUNCTIONS=true
 
+# History settings - share across sessions immediately
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY        # share history between all sessions in real-time
+setopt HIST_IGNORE_DUPS     # don't record duplicate consecutive commands
+setopt HIST_IGNORE_SPACE    # don't record commands starting with a space
+
 # Zinit initialization
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [[ -d $ZINIT_HOME ]]; then
     source "${ZINIT_HOME}/zinit.zsh"
+
+    # opencli completion
+    fpath=(/Users/xdays/.zsh/completions $fpath)
 
     # Load plugins with turbo mode (deferred loading for faster startup)
     zinit wait lucid light-mode for \
@@ -59,5 +70,3 @@ else
     echo
 fi
 
-alias genpass='openssl rand -base64 32 | tr -d "
-" | head -c 32'
