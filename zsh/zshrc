@@ -21,11 +21,24 @@ if [[ -d $ZINIT_HOME ]]; then
     fpath=(/Users/xdays/.zsh/completions $fpath)
 
     # Load plugins with turbo mode (deferred loading for faster startup)
+    # zsh-autosuggestions
+    # - Default highlight color (fg=8) can be invisible on some terminal themes.
+    # - Load this immediately so suggestions work from the first prompt.
+    : ${ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE:=fg=cyan}
+    # NOTE: Don't use `${var:=(...)}` for arrays in zsh; it will create a scalar
+    # like "(history completion)" and break strategy dispatch.
+    if [[ -z ${ZSH_AUTOSUGGEST_STRATEGY+x} ]]; then
+        typeset -ga ZSH_AUTOSUGGEST_STRATEGY
+        ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    fi
+    zinit light zsh-users/zsh-autosuggestions
+
+    # Other plugins can be deferred for faster startup.
+    # Keep zsh-syntax-highlighting last (it must be sourced after other plugins).
     zinit wait lucid light-mode for \
         atinit"zicompinit; zicdreplay" \
-        zsh-users/zsh-syntax-highlighting \
-        zsh-users/zsh-autosuggestions \
-        zsh-users/zsh-completions
+        zsh-users/zsh-completions \
+        zsh-users/zsh-syntax-highlighting
 
     # Load OMZ git library and plugin
     zinit wait lucid for \
@@ -69,4 +82,3 @@ if [[ $(uname) == "Linux" ]] && [[ -z "$TMUX" ]]; then
 else
     echo
 fi
-
