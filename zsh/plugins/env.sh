@@ -46,8 +46,16 @@ goenv() {
       export AWS_PROFILE="loop-prod"
       export KUBE_PROFILE="prod-firework"
       ;;
+    admin)
+      export AWS_PROFILE="loop-admin"
+      export KUBE_PROFILE="dev-firework"
+      ;;
+    playground)
+      export AWS_PROFILE="loop-playground"
+      export KUBE_PROFILE="dev-firework"
+      ;;
     *)
-      echo "usage: goenv [dev|staging|prod]"
+      echo "usage: goenv [dev|staging|prod|admin|playground]"
       return 1
       ;;
   esac
