@@ -3,6 +3,8 @@
 
 # setting for zsh
 export DISABLE_MAGIC_FUNCTIONS=true
+WORDCHARS=''
+bindkey '^W' backward-kill-word
 
 # History settings - share across sessions immediately
 HISTFILE=~/.zsh_history
