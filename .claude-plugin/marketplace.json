@@ -1,0 +1,13 @@
+{
+  "name": "xdays-claude-plugins",
+  "owner": {
+    "name": "xdays"
+  },
+  "plugins": [
+    {
+      "name": "bash-allowlist-generator",
+      "source": "./skills/bash-allowlist-generator",
+      "description": "Analyzes Claude Code session transcripts to extract non-destructive Bash command patterns and generates a permissions.allow list for ~/.claude/settings.json."
+    }
+  ]
+}
