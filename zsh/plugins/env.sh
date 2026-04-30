@@ -24,7 +24,7 @@ _env_load_state() {
 }
 
 # env switcher
-# usage: goenv [dev|staging|prod]
+# usage: goenv [dev|staging|prod|admin|playground|prod-basic|staging-basic]
 goenv() {
   if [ -z "$1" ]; then
     echo "AWS_PROFILE:    ${AWS_PROFILE:-<not set>}"
@@ -54,8 +54,16 @@ goenv() {
       export AWS_PROFILE="loop-playground"
       export KUBE_PROFILE="dev-firework"
       ;;
+    prod-basic)
+      export AWS_PROFILE="loop-prod-basic"
+      export KUBE_PROFILE="prod-firework"
+      ;;
+    staging-basic)
+      export AWS_PROFILE="loop-staging-basic"
+      export KUBE_PROFILE="staging-firework"
+      ;;
     *)
-      echo "usage: goenv [dev|staging|prod|admin|playground]"
+      echo "usage: goenv [dev|staging|prod|admin|playground|prod-basic|staging-basic]"
       return 1
       ;;
   esac
