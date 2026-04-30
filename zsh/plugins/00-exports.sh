@@ -14,6 +14,7 @@ else
     export PATH=/usr/local/openresty/luajit/bin:$PATH
 fi
 
+export PATH="$HOME/.local/bin:$PATH"
 export WPATH=$HOME/Workspace
 export WROOT=$WPATH/xdays/web
 export CLICOLOR=1
