@@ -24,12 +24,18 @@ alias e='goenv'
 alias n='ksn'
 alias tg='terragrunt'
 alias tf='terraform'
-alias gst='git status'
-alias asl='aws sso login'
-alias cdo="cd $WPATH/loopapps/ops"
-alias cdx="cd $WPATH/xdays/"
-alias cdl="cd $WPATH/loopapps/"
+alias notch="for img in ~/Pictures/Wallpaper/*; do mint run igorkulman/ChangeMenuBarColor SolidColor '#000000' $img;done"
+alias yt='yt-dlp -S ext:mp4:m4a --cookies-from-browser chrome:Default'
+alias watch='watch '
 alias genpass='openssl rand -base64 32 | tr -d "
 " | head -c 32'
 alias codeburn='npx codeburn'
 alias ccstatusline='bunx -y ccstatusline@latest'
+alias redis-dump='docker run -it --rm ghcr.io/yannh/redis-dump-go:latest'
+alias asl='aws sso login'
+alias digx='dog -H @https://dns.xdays.me/dns-query'
+
+alias cdi='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias cdx='cd $WORKSPACE/xdays/'
+alias cdl='cd $WORKSPACE/loopapps/'
+alias cdo='cd $WORKSPACE/loopapps/ops'
