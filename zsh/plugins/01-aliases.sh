@@ -31,3 +31,5 @@ alias cdx="cd $WPATH/xdays/"
 alias cdl="cd $WPATH/loopapps/"
 alias genpass='openssl rand -base64 32 | tr -d "
 " | head -c 32'
+alias codeburn='npx codeburn'
+alias ccstatusline='bunx -y ccstatusline@latest'
