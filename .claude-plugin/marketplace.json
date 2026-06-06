@@ -8,6 +8,11 @@
       "name": "bash-allowlist-generator",
       "source": "./skills/bash-allowlist-generator",
       "description": "Analyzes Claude Code session transcripts to extract non-destructive Bash command patterns and generates a permissions.allow list for ~/.claude/settings.json."
+    },
+    {
+      "name": "ntfy-publish",
+      "source": "./skills/ntfy-publish",
+      "description": "Reference for publishing notifications via ntfy.sh — headers, priority levels, action buttons, attachments, scheduling, and authentication."
     }
   ]
 }
