@@ -15,7 +15,7 @@ if uname -a | grep -q "Darwin"; then
     export PATH=$HOME/.cargo/bin:$PATH
     export PATH=$HOME/.mix/escripts:$PATH
     export WORKSPACE=~/Workspace
-elif uname -a | g-q Microsoft; then
+elif uname -a | grep -q Microsoft; then
     export DOCKER_HOST=tcp://localhost:2375
 else
     export PATH=/usr/local/openresty/luajit/bin:$PATH
