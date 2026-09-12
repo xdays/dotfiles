@@ -4,6 +4,8 @@
 # setting for zsh
 export DISABLE_MAGIC_FUNCTIONS=true
 WORDCHARS=''
+# Keep shell editing in Emacs mode regardless of inherited $EDITOR (for example, Herdr's server environment).
+bindkey -e
 bindkey '^W' backward-kill-word
 
 # History settings - share across sessions immediately
@@ -79,7 +81,9 @@ if uname -a | grep -q "Linux\|Darwin"; then
     goenv
 fi
 
-if [[ $(uname) == "Linux" ]] && [[ -z "$TMUX" ]]; then
+# Herdr is already a terminal multiplexer, so do not nest tmux inside it
+# (including when attaching to a Herdr server on a remote machine over SSH).
+if [[ $(uname) == "Linux" ]] && [[ -z "$TMUX" ]] && [[ -z "$HERDR_ENV" ]]; then
     tmux new-session -A
 else
     echo
