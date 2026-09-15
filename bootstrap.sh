@@ -23,7 +23,7 @@ config_tools() {
     for f in $(find $WROOT/configs -maxdepth 1 -type f); do
         filename=$(basename "$f")
         src="$WROOT/configs/$filename"
-        dest=$HOME/.$filename
+        dest="$HOME/.$filename"
         ln -snf "$src" "$dest"
     done
 }

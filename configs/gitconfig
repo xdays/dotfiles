@@ -2,6 +2,7 @@
 	editor = vim
 	quotepath = false
 	ignorecase = false
+	excludesFile = ~/.gitignore
 [color]
 	diff = auto
 	status = auto
@@ -17,7 +18,7 @@
 	br = branch
 	type = cat-file -t
 	dump = cat-file -p
-	email-guess = !. /web/root/etc/git-scripts/email-guess.sh
+	email-guess = !. "$HOME/Workspace/web/root/etc/git-scripts/email-guess.sh"
 [pull]
 	ff = only
 [commit]
@@ -36,3 +37,9 @@
 	required = true
 [credential]
 	helper = store
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
